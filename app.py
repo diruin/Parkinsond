@@ -42,16 +42,16 @@ with col1:
     if st.button("보행 데이터 보기", key="data_button"):
         st.session_state.show_data_image = not st.session_state.show_data_image  
     if st.session_state.show_data_image:
-        st.image("3.png", caption="Stride Data Overview", use_container_width=True)
+        st.image("3.png", caption="DataSet", use_container_width=True)
 
 with col2:
     if st.button("이중 분류\nConfusion Matrix", key="graph_button_1"):
         st.session_state.show_graph1 = not st.session_state.show_graph1  
     if st.session_state.show_graph1:
-        st.image("1.png", caption="Step Time Distribution 1", use_container_width=True)
+        st.image("1.png", caption="Confusion Matrix", use_container_width=True)
 
 with col3:
     if st.button("이중 분류\nROC Curve", key="graph_button_2"):
         st.session_state.show_graph2 = not st.session_state.show_graph2  
     if st.session_state.show_graph2:
-        st.image("2.png", caption="Step Time Distribution 2", use_container_width=True)
+        st.image("2.png", caption="ROC Curve", use_container_width=True)
