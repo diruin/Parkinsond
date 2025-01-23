@@ -47,14 +47,21 @@ with col1:
     if st.session_state.show_data_image:
         st.image("3.png", caption="Stride Data Overview", use_container_width=True)
 
+
 with col2:
-    if st.button("이중 분류일때 \nconfusion Matrix", key="graph_button_1"):
-        st.session_state.show_graph1 = not st.session_state.show_graph1 
-    if st.session_state.show_graph1:
+    if st.markdown(
+        '<button style="font-size:14px; white-space: pre-wrap;">이중 분류일때\nConfusion Matrix</button>',
+        unsafe_allow_html=True,
+    ):
+        st.session_state.show_graph1 = not st.session_state.show_graph1  
+    if st.session_state.get("show_graph1", False):
         st.image("1.png", caption="Step Time Distribution 1", use_container_width=True)
 
 with col3:
-    if st.button("이중 분류일때 \nROC Curve", key="graph_button_2"):
-        st.session_state.show_graph2 = not st.session_state.show_graph2 
-    if st.session_state.show_graph2:
+    if st.markdown(
+        '<button style="font-size:14px; white-space: pre-wrap;">이중 분류일때\nROC Curve</button>',
+        unsafe_allow_html=True,
+    ):
+        st.session_state.show_graph2 = not st.session_state.show_graph2  
+    if st.session_state.get("show_graph2", False):
         st.image("2.png", caption="Step Time Distribution 2", use_container_width=True)
