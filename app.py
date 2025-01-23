@@ -48,13 +48,13 @@ with col1:
         st.image("3.png", caption="Stride Data Overview", use_container_width=True)
 
 with col2:
-    if st.button("분포 그래프 보기 (1)", key="graph_button_1"):
+    if st.button("이중 분류일때 confusion Matrix 보기", key="graph_button_1"):
         st.session_state.show_graph1 = not st.session_state.show_graph1 
     if st.session_state.show_graph1:
         st.image("1.png", caption="Step Time Distribution 1", use_container_width=True)
 
 with col3:
-    if st.button("분포 그래프 보기 (2)", key="graph_button_2"):
+    if st.button("이중 분류일때 ROC Curve 보", key="graph_button_2"):
         st.session_state.show_graph2 = not st.session_state.show_graph2 
     if st.session_state.show_graph2:
         st.image("2.png", caption="Step Time Distribution 2", use_container_width=True)
