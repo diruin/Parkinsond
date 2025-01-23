@@ -24,15 +24,16 @@ step_time = st.number_input("Step Time (s) 값을 입력하세요:", min_value=0
 col1, col2, col3 = st.columns(3)  
 
 with col1:
-    if st.button("보행 데이터 보기"):
+    if st.button("보행 데이터 보기", key="data_button"):
         st.image("3.png", caption="Stride Data Overview", use_column_width=True)
 
 with col2:
-    if st.button("분포 그래프 보기"):
-        st.image("1.png", caption="Step Time Distribution", use_column_width=True)
+    if st.button("분포 그래프 보기 (1)", key="graph_button_1"):
+        st.image("1.png", caption="Step Time Distribution 1", use_column_width=True)
+
 with col3:
-    if st.button("분포 그래프 보기"):
-        st.image("2.png", caption="Step Time Distribution", use_column_width=True)
+    if st.button("분포 그래프 보기 (2)", key="graph_button_2"):
+        st.image("2.png", caption="Step Time Distribution 2", use_column_width=True)
 
 if st.button("예측하기"):
     model = joblib.load("decision_tree_model.pkl")
