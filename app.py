@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 from sklearn.tree import DecisionTreeClassifier
 
-file_path = "C:/Users/경북대학교/Desktop/LJH/lab/new/simplified_stride_data.csv"
+file_path = "simplified_stride_data.csv"
 stride_data = pd.read_csv(file_path)
 
 
