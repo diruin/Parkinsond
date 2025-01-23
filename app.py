@@ -25,11 +25,14 @@ col1, col2 = st.columns(2)  # 두 개의 버튼을 가로로 배치
 
 with col1:
     if st.button("보행 데이터 보기"):
-        st.image("data_image1.png", caption="Stride Data Overview", use_column_width=True)
+        st.image("3.png", caption="Stride Data Overview", use_column_width=True)
 
 with col2:
     if st.button("분포 그래프 보기"):
-        st.image("data_image2.png", caption="Step Time Distribution", use_column_width=True)
+        st.image("1.png", caption="Step Time Distribution", use_column_width=True)
+with col3:
+    if st.button("분포 그래프 보기"):
+        st.image("2.png", caption="Step Time Distribution", use_column_width=True)
 
 if st.button("예측하기"):
     model = joblib.load("decision_tree_model.pkl")
