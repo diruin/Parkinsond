@@ -21,7 +21,7 @@ st.title("보행 데이터 분류기")
 
 step_time = st.number_input("Step Time (s) 값을 입력하세요:", min_value=0.1, max_value=3.0, step=0.01)
 
-col1, col2 = st.columns(2)  # 두 개의 버튼을 가로로 배치
+col1, col2, col3 = st.columns(3)  
 
 with col1:
     if st.button("보행 데이터 보기"):
