@@ -16,7 +16,7 @@ dt_model.fit(X, y)
 
 joblib.dump(dt_model, "decision_tree_model.pkl")
 
-st.title("보행 데이터 분류기")
+st.title("파킨슨병 진단")
 
 step_time = st.number_input("Step Time (s) 값을 입력하세요:", min_value=0.1, max_value=3.0, step=0.01)
 
