@@ -80,7 +80,7 @@ joblib.dump(dt_model, "decision_tree_model.pkl")
 
 st.title("🚶‍♂️ 파킨슨병 진단 시스템")
 
-step_time = st.number_input("📏 Step Time (s) 값을 입력하세요:", min_value=0.1, max_value=3.0, step=0.01)
+step_time = st.number_input("📏 한 보폭에 걸린 시간을 입력하세요:", min_value=0.1, max_value=3.0, step=0.01)
 
 if st.button("🔍 예측하기", key="predict_button"):
     model = joblib.load("decision_tree_model.pkl")
