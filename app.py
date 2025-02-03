@@ -89,7 +89,7 @@ if st.button("🔍 예측하기", key="predict_button"):
     class_labels = {
         0: "Elderly (노인)",
         1: "Young Adults (청년)",
-        2: '<span class="red-text">⚠️ Parkinson\'s Disease (파킨슨병이 의심됩니다)</span>'
+        2: '<span class="red-text"> Parkinson\'s Disease (파킨슨병이 의심됩니다)</span>'
     }
     
     st.markdown(f"**예측 결과: {class_labels[prediction[0]]}**", unsafe_allow_html=True)
