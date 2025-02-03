@@ -12,7 +12,7 @@ st.markdown(
     }
     
     .stApp {
-        background-color: red; /* 앱 전체 배경 */
+        background-color: #851316; /* 앱 전체 배경 */
         border-radius: 10px;
         padding: 20px;
     }
