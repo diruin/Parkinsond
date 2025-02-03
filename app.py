@@ -88,7 +88,11 @@ if st.button("🔍 예측하기", key="predict_button"):
     model = joblib.load("decision_tree_model.pkl")
     prediction = model.predict([[step_time]])
 
-    class_labels = {0: "Elderly (노인)", 1: "Young Adults (청년)", 2: "<span class="red-text"> Parkinson's Disease (파킨슨병이 의심됩니다)"}
+    class_labels = {
+        0: "Elderly (노인)",
+        1: "Young Adults (청년)",
+        2: '<span class="red-text"> Parkinson\'s Disease (파킨슨병이 의심됩니다)</span>'
+    }
     st.write(f"**예측 결과: {class_labels[prediction[0]]}**")
 
 st.markdown("---")
