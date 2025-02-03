@@ -12,20 +12,20 @@ st.markdown(
     }
     
     .stApp {
-        background-color: white; /* 앱 전체 배경 */
+        background-color: white;
         border-radius: 10px;
         padding: 20px;
     }
 
     h1 {
-        color: white; /* 제목 색상 */
+        color: black;
         font-size: 32px;
         font-weight: bold;
         text-align: center;
     }
 
     .stButton>button {
-        background-color: #7F7F7F; /* 버튼 기본 색상 */
+        background-color: #7F7F7F;
         color: white;
         font-size: 16px;
         font-weight: bold;
@@ -36,7 +36,7 @@ st.markdown(
     }
 
     .stButton>button:hover {
-        background-color: #2980B9; /* 버튼 Hover 색상 */
+        background-color: #2980B9;
     }
 
     .stNumberInput>div>div>input {
@@ -54,6 +54,7 @@ st.markdown(
     .stMarkdown {
         text-align: center;
     }
+
     .red-text {
         color: red;
         font-weight: bold;
@@ -77,13 +78,10 @@ dt_model.fit(X, y)
 
 joblib.dump(dt_model, "decision_tree_model.pkl")
 
-# 제목
 st.title("🚶‍♂️ 파킨슨병 진단 시스템")
 
-# 사용자 입력
 step_time = st.number_input("📏 Step Time (s) 값을 입력하세요:", min_value=0.1, max_value=3.0, step=0.01)
 
-# 예측 버튼
 if st.button("🔍 예측하기", key="predict_button"):
     model = joblib.load("decision_tree_model.pkl")
     prediction = model.predict([[step_time]])
@@ -91,13 +89,13 @@ if st.button("🔍 예측하기", key="predict_button"):
     class_labels = {
         0: "Elderly (노인)",
         1: "Young Adults (청년)",
-        2: '<span class="red-text"> Parkinson\'s Disease (파킨슨병이 의심됩니다)</span>'
+        2: '<span class="red-text">⚠️ Parkinson\'s Disease (파킨슨병이 의심됩니다)</span>'
     }
-    st.write(f"**예측 결과: {class_labels[prediction[0]]}**")
+    
+    st.markdown(f"**예측 결과: {class_labels[prediction[0]]}**", unsafe_allow_html=True)
 
 st.markdown("---")
 
-# 상태 변수 설정
 if "show_data_image" not in st.session_state:
     st.session_state.show_data_image = False
 if "show_graph1" not in st.session_state:
@@ -105,7 +103,6 @@ if "show_graph1" not in st.session_state:
 if "show_graph2" not in st.session_state:
     st.session_state.show_graph2 = False
 
-# 버튼 UI 구성
 col1, col2, col3 = st.columns(3)
 
 with col1:
