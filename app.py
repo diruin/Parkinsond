@@ -8,7 +8,7 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #851316 !important; /* 배경색 */
+        background-color: #B90000 !important; /* 배경색 */
     }
     
     .stApp {
@@ -18,7 +18,7 @@ st.markdown(
     }
 
     h1 {
-        color: #2C3E50; /* 제목 색상 */
+        color: black; /* 제목 색상 */
         font-size: 32px;
         font-weight: bold;
         text-align: center;
