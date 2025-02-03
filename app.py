@@ -8,11 +8,11 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #F5F7FA; /* 배경색 */
+        background-color: #F8F9FA; /* 배경색 */
     }
     
     .stApp {
-        background-color: #FFFFFF; /* 앱 전체 배경 */
+        background-color: red; /* 앱 전체 배경 */
         border-radius: 10px;
         padding: 20px;
     }
