@@ -3,6 +3,64 @@ import pandas as pd
 import joblib
 from sklearn.tree import DecisionTreeClassifier
 
+# CSS 스타일 적용
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #F5F7FA; /* 배경색 */
+    }
+    
+    .stApp {
+        background-color: #FFFFFF; /* 앱 전체 배경 */
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #2C3E50; /* 제목 색상 */
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .stButton>button {
+        background-color: #3498DB; /* 버튼 기본 색상 */
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 10px 20px;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .stButton>button:hover {
+        background-color: #2980B9; /* 버튼 Hover 색상 */
+    }
+
+    .stNumberInput>div>div>input {
+        font-size: 18px; 
+        border-radius: 5px; 
+        border: 2px solid #BDC3C7;
+        padding: 5px;
+    }
+    
+    .stImage {
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .stMarkdown {
+        text-align: center;
+    }
+    
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# 데이터 불러오기 및 모델 학습
 file_path = "simplified_stride_data.csv"
 stride_data = pd.read_csv(file_path)
 
@@ -16,19 +74,23 @@ dt_model.fit(X, y)
 
 joblib.dump(dt_model, "decision_tree_model.pkl")
 
-st.title("파킨슨병 진단")
+# 제목
+st.title("🚶‍♂️ 파킨슨병 진단 시스템")
 
-step_time = st.number_input("Step Time (s) 값을 입력하세요:", min_value=0.1, max_value=3.0, step=0.01)
+# 사용자 입력
+step_time = st.number_input("📏 Step Time (s) 값을 입력하세요:", min_value=0.1, max_value=3.0, step=0.01)
 
-if st.button("예측하기", key="predict_button"):
+# 예측 버튼
+if st.button("🔍 예측하기", key="predict_button"):
     model = joblib.load("decision_tree_model.pkl")
     prediction = model.predict([[step_time]])
-    
-    class_labels = {0: "Elderly (노인)", 1: "Young Adults (청년)", 2: "Parkinson's Disease (파킨슨병이 의심됩니다)"}
-    st.write(f"예측 결과: **{class_labels[prediction[0]]}**") 
+
+    class_labels = {0: "Elderly (노인)", 1: "Young Adults (청년)", 2: "⚠️ Parkinson's Disease (파킨슨병이 의심됩니다)"}
+    st.write(f"**예측 결과: {class_labels[prediction[0]]}**")
 
 st.markdown("---")
 
+# 상태 변수 설정
 if "show_data_image" not in st.session_state:
     st.session_state.show_data_image = False
 if "show_graph1" not in st.session_state:
@@ -36,22 +98,23 @@ if "show_graph1" not in st.session_state:
 if "show_graph2" not in st.session_state:
     st.session_state.show_graph2 = False
 
-col1, col2, col3 = st.columns(3)  
+# 버튼 UI 구성
+col1, col2, col3 = st.columns(3)
 
 with col1:
-    if st.button("보행 데이터 보기", key="data_button"):
-        st.session_state.show_data_image = not st.session_state.show_data_image  
+    if st.button("📊 보행 데이터 보기", key="data_button"):
+        st.session_state.show_data_image = not st.session_state.show_data_image
     if st.session_state.show_data_image:
-        st.image("3.png", caption="DataSet", use_container_width=True)
+        st.image("3.png", caption="DataSet", use_container_width=True, output_format="auto")
 
 with col2:
-    if st.button("이중 분류\nConfusion Matrix", key="graph_button_1"):
-        st.session_state.show_graph1 = not st.session_state.show_graph1  
+    if st.button("📉 Confusion Matrix", key="graph_button_1"):
+        st.session_state.show_graph1 = not st.session_state.show_graph1
     if st.session_state.show_graph1:
-        st.image("1.png", caption="Confusion Matrix", use_container_width=True)
+        st.image("1.png", caption="Confusion Matrix", use_container_width=True, output_format="auto")
 
 with col3:
-    if st.button("이중 분류\nROC Curve", key="graph_button_2"):
-        st.session_state.show_graph2 = not st.session_state.show_graph2  
+    if st.button("📈 ROC Curve", key="graph_button_2"):
+        st.session_state.show_graph2 = not st.session_state.show_graph2
     if st.session_state.show_graph2:
-        st.image("2.png", caption="ROC Curve", use_container_width=True)
+        st.image("2.png", caption="ROC Curve", use_container_width=True, output_format="auto")
