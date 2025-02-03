@@ -18,14 +18,14 @@ st.markdown(
     }
 
     h1 {
-        color: black; /* 제목 색상 */
+        color: white; /* 제목 색상 */
         font-size: 32px;
         font-weight: bold;
         text-align: center;
     }
 
     .stButton>button {
-        background-color: #3498DB; /* 버튼 기본 색상 */
+        background-color: #7F7F7F; /* 버튼 기본 색상 */
         color: white;
         font-size: 16px;
         font-weight: bold;
